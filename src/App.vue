@@ -1,24 +1,23 @@
 <script lang="ts">
-import * as PIXI from "pixi.js";
+
+import CanvasVue from './components/Canvas.vue';
 export default {
+  components: {
+    CanvasVue
+  },
   methods: {
-    initPixi() {
-      //创建一个Pixi应用
-      const app = new PIXI.Application({ width: 400, height: 300 });
-      //创建canvas标签并添加到document文档中
-      document.getElementById("canvas").append(app.view);
-    },
+
   },
   mounted() {
-    this.initPixi();
+
   },
 };
 </script>
 
 
+<!-- 主界面结构 -->
 <template>
   <div>
-    <h1>xxxxxxxxxxxxxxx</h1>
-    <div id="canvas"></div>
+    <CanvasVue></CanvasVue>
   </div>
 </template>

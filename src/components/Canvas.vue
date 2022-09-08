@@ -18,7 +18,7 @@ export default {
 
 <template>
   <div>
-    <h1>xxxxxxxxxxxxxxx</h1>
+    <!-- todo 添加画布的外包框 -->
     <div id="canvas"></div>
   </div>
 </template>
