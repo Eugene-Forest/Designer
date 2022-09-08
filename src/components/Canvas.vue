@@ -4,7 +4,7 @@ export default {
   methods: {
     initPixi() {
       //创建一个Pixi应用
-      const app = new PIXI.Application({ width: 400, height: 300 });
+      const app = new PIXI.Application();
       //创建canvas标签并添加到document文档中
       document.getElementById("canvas").append(app.view);
     },
