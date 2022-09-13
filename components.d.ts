@@ -14,8 +14,8 @@ declare module '@vue/runtime-core' {
     ElHeader: typeof import('element-plus/es')['ElHeader']
     ElMain: typeof import('element-plus/es')['ElMain']
     ElRow: typeof import('element-plus/es')['ElRow']
-    Pixi: typeof import('./src/components/pixi/Pixi.vue')['default']
+    Pixi: typeof import('./src/components/Pixi.vue')['default']
     RightToolBox: typeof import('./src/components/RightToolBox.vue')['default']
-    Svg: typeof import('./src/components/svg/Svg.vue')['default']
+    Svg: typeof import('./src/components/Svg.vue')['default']
   }
 }

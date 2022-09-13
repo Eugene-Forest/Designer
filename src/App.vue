@@ -1,9 +1,9 @@
 <script lang="ts">
 
-import CanvasVue from './components/pixi/Pixi.vue';
+import PixiCanvas from './components/Pixi.vue';
 export default {
   components: {
-    CanvasVue
+    PixiCanvas
   },
   methods: {
 
@@ -17,7 +17,7 @@ export default {
 
 <!-- 主界面结构 -->
 <template>
-  <CanvasVue></CanvasVue>
+  <PixiCanvas></PixiCanvas>
 </template>
 
 

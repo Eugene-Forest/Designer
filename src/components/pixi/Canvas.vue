@@ -4,8 +4,10 @@ export default {
   methods: {
     initPixi() {
       //创建一个Pixi应用
-      const app = new PIXI.Application();
-      //创建canvas标签并添加到document文档中
+      const app = new PIXI.Application({
+        backgroundColor: 0x1d9ce0
+      });
+      //创建canvas标签并添加到document中
       document.getElementById("canvas").append(app.view);
     },
   },
@@ -18,7 +20,6 @@ export default {
 
 <template>
   <div>
-    <!-- todo 添加画布的外包框 -->
     <div id="canvas"></div>
   </div>
 </template>

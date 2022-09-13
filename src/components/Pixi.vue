@@ -1,6 +1,6 @@
 <script lang="ts">
 
-import CanvasVue from './Canvas.vue';
+import CanvasVue from './pixi/Canvas.vue';
 export default {
     components: {
         CanvasVue
