@@ -1,8 +1,9 @@
+import { Painter } from '../../canvas/Painter';
 
 /**
  * 平面直角坐标系下的点
  */
-export class BasePoint {
+export class BasePoint implements Painter{
 
     //#region 属性
     private _x: number = 0;
@@ -11,9 +12,11 @@ export class BasePoint {
     //#endregion 属性
 
     //#region 构造函数
-    constructor(x: number, y: number) {
-        this._x = x;
-        this._y = y;
+    constructor();
+    constructor(x: number, y: number)
+    constructor(x?: number, y?: number) {
+        this._x = x||0;
+        this._y = y||0;
     }
     //#endregion 构造函数
 
@@ -55,6 +58,14 @@ export class BasePoint {
 
     //#region 函数
 
+
+    //#region 函数实现与重写
+
+    paint(arg: any): void {
+        throw new Error('Method not implemented.');
+    }
+    //#endregion 函数实现与重写
+    
     //#endregion 函数
 
 }

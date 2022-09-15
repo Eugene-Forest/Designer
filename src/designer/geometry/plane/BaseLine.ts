@@ -1,9 +1,10 @@
 import { BasePoint } from './BasePoint';
+import { Painter } from '../../canvas/Painter';
 
 /**
  * 平面直角坐标系下的线
  */
-export class BaseLine {
+export class BaseLine implements Painter{
 
     //#region 属性
 
@@ -25,7 +26,7 @@ export class BaseLine {
      * @return {BasePoint}
      */
 	public get startPoint(): BasePoint {
-		return this._startPoint;
+        return this._startPoint;
 	}
 
     /**
@@ -57,9 +58,14 @@ export class BaseLine {
 
     //#region 函数
 
+
+    //#region 函数实现与重写
+
+    paint(arg: any): void {
+        throw new Error('Method not implemented.');
+    }
+    //#endregion 函数实现与重写
+    
     //#endregion 函数
-
-
-
 
 }
