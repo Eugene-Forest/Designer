@@ -1,4 +1,4 @@
-import { BaseItem } from './BaseItem';
+import { BaseItem } from '../base/BaseItem';
 /**
  * 实体类：
  */
