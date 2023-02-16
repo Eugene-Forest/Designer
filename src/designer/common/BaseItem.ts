@@ -5,15 +5,18 @@ import { Painter } from '../canvas/Painter';
 export class BaseItem implements Painter{
 
     //#region 属性
-    
-    /**
-     * 包含的子对象
-     */
-    private _childItems:BaseItem[]=[];
-    /**
-     * 被包含于的父对象
-     */
-    private _parentItem:BaseItem;
+
+    /** 包含的子对象 */
+    private _childItems: BaseItem[] = [];
+
+    /** 被包含于的父对象 */
+    private _parentItem: BaseItem;
+
+    private _name: string = '';
+
+    private  _id: string ='';
+
+    private  
 
     //#endregion 属性
 
