@@ -1,7 +1,7 @@
 import { Brush } from "./Brush";
 
 /**
- * svg.js 画笔
+ * 封装 svg.js 画笔
  */
 export class SvgBrush extends Brush{
 

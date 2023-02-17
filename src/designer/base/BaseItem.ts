@@ -1,8 +1,11 @@
+import { Brush } from '../canvas/Brush';
 import { Painter } from '../canvas/Painter';
+import { ClassName } from '../common/ClassEnum';
+import { Serializable } from '../serialize/Serializable';
 /**
  * 用来体现图形包含关系的类
  */
-export class BaseItem implements Painter{
+export class BaseItem implements Painter,Serializable{
 
     //#region 属性
 
@@ -11,12 +14,22 @@ export class BaseItem implements Painter{
 
     /** 被包含于的父对象 */
     private _parentItem: BaseItem;
-
+    /**
+     * 唯一标识的名字
+     */
     private _name: string = '';
-
-    private  _id: string ='';
-
-    private  
+    /**
+     * 类名
+     */
+    private readonly _className: string = ClassName.BaseItem;
+    /**
+     * 用来表示当前对象当前状态的标识符；用来识别当前对象是否改变
+     */
+    private _id: string = '';
+    /**
+     * 用来判断是否需要重新画图的标识符
+     */
+    private _isDrawChange: boolean = true;
 
     //#endregion 属性
 
@@ -31,21 +44,47 @@ export class BaseItem implements Painter{
     //#endregion 构造函数
 
     //#region 存取器
-    
-    get childItems(): BaseItem[] {
+
+    /**
+     * 获取子对象集合
+     */
+    get getChildItems(): BaseItem[] {
         return this._childItems;
     }
 
-    set childItems(value: BaseItem[]) {
+    /**
+     * 设置子对象集合
+     */
+    set setChildItems(value: BaseItem[]) {
         this._childItems = value;
     }
 
-    get parentItem(): BaseItem {
+    get getParentItem(): BaseItem {
         return this._parentItem;
     }
 
-    set parentItem(value: BaseItem) {
+    set setParentItem(value: BaseItem) {
         this._parentItem = value;
+    }
+
+    get getId() {
+        return this._id;
+    }
+
+    get getDrawChange() {
+        return this._isDrawChange;
+    }
+
+    set setDrawChange(flag: boolean) {
+        this._isDrawChange = flag;
+    }
+
+    get getName() {
+        return this._name;
+    }
+    
+    get getClassName() {
+        return this._className;
     }
     //#endregion 存取器
 
@@ -54,8 +93,18 @@ export class BaseItem implements Painter{
     
     
     //#region 函数实现与重写
+    
+    paint(painter: Brush): void {
+        throw new Error('Method not implemented.');
+    }
 
-    paint(arg: any): void {
+    Serialize(): void {
+        throw new Error('Method not implemented.');
+    }
+    DeSerialize(): void {
+        throw new Error('Method not implemented.');
+    }
+    DeSerializeRef(): void {
         throw new Error('Method not implemented.');
     }
     //#endregion 函数实现与重写
