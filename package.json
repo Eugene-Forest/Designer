@@ -1,25 +1,26 @@
 {
-  "name": "vite-vue-typescript-starter",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@svgdotjs/svg.js": "^3.1.2",
-    "element-plus": "^2.2.16",
-    "pixi.js": "^6.5.2",
-    "vue": "^3.2.38"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^3.1.0",
-    "typescript": "^4.6.4",
-    "unplugin-auto-import": "^0.11.2",
-    "unplugin-vue-components": "^0.22.4",
-    "vite": "^3.1.0",
-    "vue-tsc": "^0.40.7"
-  }
+	"name": "vite-vue-typescript-starter",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"start": "vite",
+		"build": "vue-tsc --noEmit && vite build",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@svgdotjs/svg.js": "^3.1.2",
+		"element-plus": "^2.2.16",
+		"pixi.js": "^6.5.2",
+		"vue": "^3.2.38"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-vue": "^3.1.0",
+		"typescript": "^4.6.4",
+		"unplugin-auto-import": "^0.11.2",
+		"unplugin-vue-components": "^0.22.4",
+		"vite": "^3.1.0",
+		"vue-tsc": "^0.40.7"
+	}
 }

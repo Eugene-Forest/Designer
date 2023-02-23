@@ -1,9 +1,8 @@
-import { Brush } from "./Brush";
+import { Brush } from './Brush';
 
 /**
  * 用来定义画图基础功能
  */
 export interface Painter {
-
-    paint(painter: Brush): void;
+	paint(painter: Brush): void;
 }
