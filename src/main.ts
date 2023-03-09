@@ -1,7 +1,7 @@
 import {createApp} from 'vue'
 import './style.css'
 import App from './App.vue'
-import TestApp from './TestApp.vue'
+import TestApp from '../test/TestApp.vue'
 
 let vite_env = import.meta.env.VITE_ENV;
 let application;
