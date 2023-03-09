@@ -1,13 +1,12 @@
 <script lang="ts">
 
+import PixiCanvas from './test/TestMain.vue'
 export default {
   components: {
-
+    PixiCanvas
   },
   methods: {
-    init(){
 
-    }
   },
   mounted() {
 
@@ -18,7 +17,7 @@ export default {
 
 <!-- 主界面结构 -->
 <template>
-
+  <PixiCanvas></PixiCanvas>
 </template>
 
 

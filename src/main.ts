@@ -1,6 +1,25 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import './style.css'
 import App from './App.vue'
+import TestApp from './TestApp.vue'
 
-
-createApp(App).mount('#app')
+let vite_env = import.meta.env.VITE_ENV;
+let application;
+switch (vite_env) {
+    case "dev": {
+        application = createApp(App);
+        break;
+    }
+    case "prod": {
+        application = createApp(App);
+        break;
+    }
+    case "test": {
+        application = createApp(TestApp);
+        break;
+    }
+    default: {
+        application = createApp(App);
+    }
+}
+application.mount('#app');

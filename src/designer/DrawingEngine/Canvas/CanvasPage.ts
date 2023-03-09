@@ -1,5 +1,8 @@
-import {Application, Container, Sprite} from "pixi.js";
+import {Sprite} from "pixi.js";
+import {PixiBrush} from "./PixiBrush";
+import {SvgBrush} from "./SvgBrush";
 import {Brush} from "./Brush";
+import {EventBo} from "../BO/EventBo";
 
 /**
  * 作为画布基础
@@ -21,6 +24,10 @@ export class CanvasPage {
 
     /** 父级挂载元素 */
     private _parentEle: HTMLElement;
+
+    private _pixiPainter: PixiBrush;
+
+    private _svgPainter: SvgBrush;
 
     get watermarks(): Sprite[] {
         return this._watermarks;
@@ -79,12 +86,22 @@ export class CanvasPage {
         this._parentEle = value;
     }
 
-    constructor(width: number, height: number, isAutoRender: boolean, parentEle: HTMLElement) {
+    public getPainter(isSvg:boolean):Brush{
+        if(isSvg){
+            return this._svgPainter;
+        }else {
+            return this._pixiPainter;
+        }
+    }
+
+    constructor(width: number, height: number, isAutoRender: boolean, parentEle: HTMLElement,eventBo?:EventBo) {
         this._width = width;
         this._height = height;
         this._isAutoRender = isAutoRender;
         this._parentEle = parentEle;
-
+        //初始化画笔
+        this._pixiPainter = new PixiBrush(this);
+        this._svgPainter = new SvgBrush();
         //初始化监听事件
         this.InitCanvasPageListener();
     }

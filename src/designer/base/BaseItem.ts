@@ -25,7 +25,7 @@ export class BaseItem implements Painter,Serializable{
     /**
      * 用来表示当前对象当前状态的标识符；用来识别当前对象是否改变
      */
-    private _id: string = '';
+    private _uuid : number = 0;
     /**
      * 用来判断是否需要重新画图的标识符
      */
@@ -45,52 +45,54 @@ export class BaseItem implements Painter,Serializable{
 
     //#region 存取器
 
-    /**
-     * 获取子对象集合
-     */
-    get getChildItems(): BaseItem[] {
+    public get uuid(): number {
+        return this._uuid;
+    }
+
+    public get className(): string {
+        return this._className;
+    }
+
+    public get childItems(): BaseItem[] {
         return this._childItems;
     }
 
-    /**
-     * 设置子对象集合
-     */
-    set setChildItems(value: BaseItem[]) {
+    public set childItems(value: BaseItem[]) {
         this._childItems = value;
     }
 
-    get getParentItem(): BaseItem {
+    public get parentItem(): BaseItem {
         return this._parentItem;
     }
 
-    set setParentItem(value: BaseItem) {
+    public set parentItem(value: BaseItem) {
         this._parentItem = value;
     }
 
-    get getId() {
-        return this._id;
+    public get name(): string {
+        return this._name;
     }
 
-    get getDrawChange() {
+    public set name(value: string) {
+        this._name = value;
+    }
+
+    public get isDrawChange(): boolean {
         return this._isDrawChange;
     }
 
-    set setDrawChange(flag: boolean) {
-        this._isDrawChange = flag;
+    public set isDrawChange(value: boolean) {
+        this._isDrawChange = value;
     }
 
-    get getName() {
-        return this._name;
-    }
-    
-    get getClassName() {
-        return this._className;
-    }
     //#endregion 存取器
 
 
     //#region 函数
-    
+
+    public updateUUID(){
+        this._uuid++;
+    }
     
     //#region 函数实现与重写
     

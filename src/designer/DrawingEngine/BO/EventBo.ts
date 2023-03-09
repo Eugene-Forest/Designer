@@ -1,5 +1,13 @@
+export class EventBo {
 
+    public mouseMove() {
+    };
 
-export class EventBo{
+    public mouseDown() {
+
+    };
+
+    public mouseUp() {
+    };
 
 }
