@@ -1,6 +1,5 @@
 <script lang="ts">
 
-import PixiCanvas from './components/Pixi.vue';
 export default {
   components: {
     PixiCanvas

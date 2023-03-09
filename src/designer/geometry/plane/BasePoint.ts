@@ -1,4 +1,4 @@
-import { Painter } from '../../canvas/Painter';
+import { Painter } from '../../DrawingEngine/Canvas/Painter';
 
 /**
  * 平面直角坐标系下的点

@@ -1,5 +1,5 @@
-import { Brush } from '../canvas/Brush';
-import { Painter } from '../canvas/Painter';
+import { Brush } from '../DrawingEngine/Canvas/Brush';
+import { Painter } from '../DrawingEngine/Canvas/Painter';
 import { ClassName } from '../common/ClassEnum';
 import { Serializable } from '../serialize/Serializable';
 /**

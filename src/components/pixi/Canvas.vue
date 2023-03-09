@@ -9,7 +9,7 @@ export default {
 				backgroundColor: 0xfb6a8f,
 			});
 			//创建canvas标签并添加到document中
-			document.getElementById('canvas').append(app.view);
+			document.getElementById('Canvas').append(app.view);
 			//目录基础路径基于项目根目录
 			const avatar = PIXI.Sprite.from('./public/cat.png');
 			avatar.scale.set(0.5, 0.5);
@@ -27,18 +27,24 @@ export default {
 			app.stage.addChild(avatar);
 
 			// 创建一个半径为32px的圆
-			const circle = new Graphics();
-			circle.beginFill(0x1d9ce0);
-			circle.drawCircle(0, 0, 32);
-			circle.endFill();
-			circle.x = 130;
-			circle.y = 130;
-
-			// // 添加到app.stage里，从而可以渲染出来
-			app.stage.addChild(circle);
-
-			avatar.mask = circle;
-		},
+			// const circle = new Graphics();
+			// circle.beginFill(0x1d9ce0);
+			// circle.drawCircle(0, 0, 32);
+			// circle.endFill();
+			// circle.x = 130;
+			// circle.y = 130;
+      //
+			// // // 添加到app.stage里，从而可以渲染出来
+			// app.stage.addChild(circle);
+			// avatar.mask = circle;
+      //
+      // app.stage.on("mousemove",(event:PIXI.InteractionEvent):void=>{
+      //   console.log("mouse move");
+      //   circle.x = event.data.global.x;
+      //   circle.y = event.data.global.y;
+      //
+      // })
+    },
 	},
 	mounted() {
 		this.initPixi();
