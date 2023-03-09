@@ -8,6 +8,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Canvas: typeof import('./src/components/Pixi/Canvas.vue')['default']
+    CustomCanvas: typeof import('./src/components/CustomCanvas.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElContainer: typeof import('element-plus/es')['ElContainer']

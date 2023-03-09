@@ -1,10 +1,10 @@
 <script lang="ts">
 
-import CanvasVue from './Pixi/Canvas.vue';
+import CustomCanvas from './CustomCanvas.vue';
 export default {
-  name:"MainCanvas",
+  name:"main",
   components: {
-    CanvasVue
+    CustomCanvas
   },
   methods: {
 
@@ -27,7 +27,7 @@ export default {
         <!-- Aside content -->
       </el-aside>
       <el-main class="radiusBorder">
-        <CanvasVue></CanvasVue>
+        <CustomCanvas></CustomCanvas>
       </el-main>
       <el-aside width="200px" class="radiusBorder">
         <!-- Aside content -->

@@ -11,7 +11,7 @@ export default {
       //创建canvas标签并添加到document中
       document.getElementById('canvas').append(app.view);
       //目录基础路径基于项目根目录
-      const avatar = PIXI.Sprite.from('./public/cat.png');
+      const avatar = PIXI.Sprite.from('/cat.png');
       avatar.scale.set(0.5, 0.5);
       // 居中展示
       avatar.x = 100;

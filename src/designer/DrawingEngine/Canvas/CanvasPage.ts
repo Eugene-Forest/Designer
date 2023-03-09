@@ -86,17 +86,17 @@ export class CanvasPage {
         this._parentEle = value;
     }
 
-    public getPainter(isSvg:boolean):Brush{
-        if(isSvg){
+    public getPainter(isSvg: boolean): Brush {
+        if (isSvg) {
             return this._svgPainter;
-        }else {
+        } else {
             return this._pixiPainter;
         }
     }
 
-    constructor(width: number, height: number, isAutoRender: boolean, parentEle: HTMLElement,eventBo?:EventBo) {
-        this._width = width;
-        this._height = height;
+    constructor(parentEle: HTMLElement, width?: number, height?: number, isAutoRender?: boolean, eventBo?: EventBo) {
+        this._width = width ? width : 800;
+        this._height = height ? height : 800;
         this._isAutoRender = isAutoRender;
         this._parentEle = parentEle;
         //初始化画笔
