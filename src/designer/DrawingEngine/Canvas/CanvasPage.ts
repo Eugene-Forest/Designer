@@ -109,6 +109,7 @@ export class CanvasPage {
     public InitCanvasPageListener() {
         setTimeout(() => {
 
+
         }, 10)
     }
 }

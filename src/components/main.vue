@@ -1,13 +1,25 @@
 <script lang="ts">
 
 import CustomCanvas from './CustomCanvas.vue';
+import {MainApplication} from "../designer/app/MainApplication";
 export default {
   name:"main",
   components: {
     CustomCanvas
   },
+  data(){
+    return{
+      designerApp:MainApplication
+    }
+  },
   methods: {
-
+    initApp(app){
+      this.designerApp = app;
+    },
+    drawSomething(){
+      console.log("drawsomething",this.designerApp)
+      this.designerApp.drawSomething();
+    }
   },
   mounted() {
 
@@ -23,13 +35,14 @@ export default {
       <!-- Header content -->
     </el-header>
     <el-container>
-      <el-aside width="200px" class="radiusBorder">
+      <el-aside width="240px" class="radiusBorder">
         <!-- Aside content -->
+        <ElButton @click="drawSomething()">测试画图</ElButton>
       </el-aside>
       <el-main class="radiusBorder">
-        <CustomCanvas></CustomCanvas>
+        <CustomCanvas @DesignerApp="this.initApp"></CustomCanvas>
       </el-main>
-      <el-aside width="200px" class="radiusBorder">
+      <el-aside width="240px" class="radiusBorder">
         <!-- Aside content -->
       </el-aside>
     </el-container>
@@ -42,6 +55,6 @@ export default {
 <style scoped>
 .radiusBorder {
   border: 1px solid var(--el-border-color);
-  border-radius: 0;
+  border-radius: 2px;
 }
 </style>

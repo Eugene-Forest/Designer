@@ -1,4 +1,6 @@
 import {DesignerPage} from "../base/DesignerPage";
+import * as PIXI from "pixi.js";
+import {Graphics} from "pixi.js";
 
 /**
  * 入口类；开放接口
@@ -15,5 +17,10 @@ export class MainApplication {
         let mountId = mountElementId ? mountElementId : "CustomCanvas";
         let parentElement = document.getElementById(mountId);
         this.designer = new DesignerPage(parentElement, width, height, false, undefined);
+    }
+
+    public drawSomething(){
+        let brush = this.designer.getPainter(false);
+        brush.paintSomething();
     }
 }

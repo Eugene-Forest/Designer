@@ -13,7 +13,9 @@ export default {
   mounted() {
     //初始化挂载
     let mainApp= new MainApplication();
-    mainApp.createDesigner();
+    mainApp.createDesigner(600,700,"CustomCanvas");
+    //发送给父组件当前的画布引擎
+    this.$emit("DesignerApp",mainApp)
   },
 }
 

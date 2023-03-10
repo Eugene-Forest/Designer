@@ -10,4 +10,6 @@ export abstract class Brush{
      * @returns {rePainterType}
      */
     public abstract get PainterType():rePainterType;
+
+    public abstract paintSomething(): void ;
 }
