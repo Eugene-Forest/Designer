@@ -1,7 +1,7 @@
 <script lang="ts">
 
 import CustomCanvas from './CustomCanvas.vue';
-import {MainApplication} from "../designer/app/MainApplication";
+import {MainApplication} from "../GraphicDesigner/app/MainApplication";
 export default {
   name:"main",
   components: {

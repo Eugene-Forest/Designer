@@ -1,6 +1,6 @@
 import {Brush} from "./Brush";
 import {Application, Container, Graphics} from "pixi.js";
-import {CanvasPage} from "./CanvasPage";
+import {CanvasConfig} from "./CanvasConfig";
 import {rePainterType} from "../Helper/GraphInterfacType";
 import * as PIXI from "pixi.js";
 
@@ -22,7 +22,23 @@ export class PixiBrush extends Brush{
         return this._container;
     }
 
-    constructor(canvasPage: CanvasPage) {
+    /**
+     * 渲染画布；重画
+     */
+    public renderCanvas(){
+        this._pixiApplication.render();
+    }
+
+    public startRenderCanvas(){
+        this._pixiApplication.start();
+    }
+
+    public stopRenderCanvas(){
+        this._pixiApplication.stop();
+        this.renderCanvas();
+    }
+
+    constructor(canvasPage: CanvasConfig) {
         super();
         //画布初始化
         this._pixiApplication = new Application({
@@ -48,7 +64,6 @@ export class PixiBrush extends Brush{
 
 
     public paintSomething(): void {
-        console.log("paint it")
         //目录基础路径基于项目根目录
         const avatar = PIXI.Sprite.from('/cat.png');
         avatar.scale.set(0.5, 0.5);
@@ -61,7 +76,8 @@ export class PixiBrush extends Brush{
         // 监听事件
         avatar.on('click', () => {
             // 透明度
-            avatar.alpha = 0.5;
+            avatar.alpha = Math.random();
+            this.renderCanvas();
         });
         this.container.addChild(avatar);
 
@@ -77,7 +93,7 @@ export class PixiBrush extends Brush{
         this.container.addChild(circle);
 
         avatar.mask = circle;
-        this._pixiApplication.render();
+        this.renderCanvas();
     }
 
 

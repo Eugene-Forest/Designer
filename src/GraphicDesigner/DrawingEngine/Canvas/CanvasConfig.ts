@@ -3,11 +3,12 @@ import {PixiBrush} from "./PixiBrush";
 import {SvgBrush} from "./SvgBrush";
 import {Brush} from "./Brush";
 import {EventBo} from "../BO/EventBo";
+import {BaseItem} from "../../base/BaseItem";
 
 /**
  * 作为画布基础
  */
-export class CanvasPage {
+export class CanvasConfig {
     /** 画布宽度 */
     private _width: number = 800;
     /** 画布高度 */
@@ -111,5 +112,10 @@ export class CanvasPage {
 
 
         }, 10)
+    }
+
+
+    public drawing(){
+
     }
 }
