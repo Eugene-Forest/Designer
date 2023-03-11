@@ -1,7 +1,8 @@
 
 
-export enum ClassName{
-    
-    BaseItem = "BaseItem",
-    
+import {ClassName} from "../DrawingEngine/Helper/GraphInterfacType";
+
+
+export class ClassEnum{
+
 }

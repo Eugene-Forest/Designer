@@ -3,12 +3,12 @@ import {PixiBrush} from "./PixiBrush";
 import {SvgBrush} from "./SvgBrush";
 import {Brush} from "./Brush";
 import {EventBo} from "../BO/EventBo";
-import {BaseItem} from "../../base/BaseItem";
+import {CanvasPage} from "./CanvasPage";
 
 /**
  * 作为画布基础
  */
-export class CanvasConfig {
+export class CanvasDesign<PixiArgs extends PixiBrush, SvgArgs extends SvgBrush> {
     /** 画布宽度 */
     private _width: number = 800;
     /** 画布高度 */
@@ -23,13 +23,15 @@ export class CanvasConfig {
     /** 步骤保存 */
     private _steps: string[] = [];
 
-    /** 父级挂载元素 */
-    private _parentEle: HTMLElement;
+    private readonly _pixiPainter: PixiArgs | PixiBrush;
 
-    private _pixiPainter: PixiBrush;
+    private readonly _svgPainter: SvgArgs | SvgBrush;
 
-    private _svgPainter: SvgBrush;
+    // private _page: CanvasPage<PixiArgs, SvgArgs>;
 
+    // public get page(): CanvasPage<PixiArgs, SvgArgs> {
+    //     return this._page;
+    // }
     get watermarks(): Sprite[] {
         return this._watermarks;
     }
@@ -78,15 +80,11 @@ export class CanvasConfig {
         this._scale = value;
     }
 
-
-    public get parentEle(): HTMLElement {
-        return this._parentEle;
-    }
-
-    public set parentEle(value: HTMLElement) {
-        this._parentEle = value;
-    }
-
+    /**
+     * 获取画笔对象
+     * @param {boolean} isSvg
+     * @returns {Brush}
+     */
     public getPainter(isSvg: boolean): Brush {
         if (isSvg) {
             return this._svgPainter;
@@ -95,14 +93,25 @@ export class CanvasConfig {
         }
     }
 
-    constructor(parentEle: HTMLElement, width?: number, height?: number, isAutoRender?: boolean, eventBo?: EventBo) {
+    constructor(parentEle: HTMLElement, width?: number, height?: number, isAutoRender?: boolean, pixiPainter?: PixiArgs, svgPainter?: SvgArgs, eventBo?: EventBo) {
         this._width = width ? width : 800;
         this._height = height ? height : 800;
         this._isAutoRender = isAutoRender;
-        this._parentEle = parentEle;
         //初始化画笔
-        this._pixiPainter = new PixiBrush(this);
-        this._svgPainter = new SvgBrush();
+        if (pixiPainter) {
+            this._pixiPainter = pixiPainter;
+        } else {
+            this._pixiPainter = new PixiBrush(
+                parentEle,
+                width,
+                height,
+                isAutoRender);
+        }
+        if (svgPainter) {
+            this._svgPainter = svgPainter;
+        } else {
+            this._svgPainter = new SvgBrush();
+        }
         //初始化监听事件
         this.InitCanvasPageListener();
     }
@@ -110,12 +119,7 @@ export class CanvasConfig {
     public InitCanvasPageListener() {
         setTimeout(() => {
 
-
         }, 10)
     }
 
-
-    public drawing(){
-
-    }
 }

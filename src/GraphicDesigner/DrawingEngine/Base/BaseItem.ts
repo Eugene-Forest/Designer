@@ -1,7 +1,8 @@
-import { Brush } from '../DrawingEngine/Canvas/Brush';
-import { Painter } from '../DrawingEngine/Canvas/Painter';
-import { ClassName } from '../common/ClassEnum';
-import { Serializable } from '../serialize/Serializable';
+import {Brush} from '../Canvas/Brush';
+import {Painter} from '../Canvas/Painter';
+import {Serializable} from '../../serialize/Serializable';
+import {ClassName} from "../Helper/GraphInterfacType";
+
 /**
  * 用来体现图形包含关系的类
  */

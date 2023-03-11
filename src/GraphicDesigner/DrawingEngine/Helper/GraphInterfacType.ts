@@ -13,3 +13,10 @@ export enum rePainterType {
     Pixi = "PIXI",
     Svg = "SVG"
 }
+
+
+export enum ClassName{
+
+    BaseItem = "BaseItem",
+
+}

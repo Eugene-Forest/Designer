@@ -7,7 +7,7 @@ import {Graphics} from "pixi.js";
  */
 export class MainApplication {
 
-    public designer: DesignerPage;
+    public page: DesignerPage;
 
     public createDesigner(height?: number, width?: number, mountElementId?: string) {
         if (window?.console) {
@@ -16,11 +16,11 @@ export class MainApplication {
         console.log("create item")
         let mountId = mountElementId ? mountElementId : "CustomCanvas";
         let parentElement = document.getElementById(mountId);
-        this.designer = new DesignerPage(parentElement, width, height, false, undefined);
+        this.page = new DesignerPage(parentElement, width, height, false, undefined);
     }
 
     public drawSomething(){
-        let brush = this.designer.getPainter(false);
+        let brush = this.page.design.getPainter(false);
         brush.paintSomething();
     }
 }

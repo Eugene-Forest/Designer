@@ -1,4 +1,4 @@
-import { BaseItem } from '../base/BaseItem';
+import { BaseItem } from '../DrawingEngine/Base/BaseItem';
 /**
  * 实体类：
  */

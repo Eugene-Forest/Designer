@@ -9,4 +9,7 @@ export class SvgBrush extends Brush{
         return rePainterType.Svg;
     }
 
+    public paintSomething(): void {
+    }
+
 }
