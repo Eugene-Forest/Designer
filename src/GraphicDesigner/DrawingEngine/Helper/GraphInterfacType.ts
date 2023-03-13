@@ -15,8 +15,9 @@ export enum rePainterType {
 }
 
 
-export enum ClassName{
+export enum BaseClassName{
 
     BaseItem = "BaseItem",
+    BasePage = "BasePage",
 
 }

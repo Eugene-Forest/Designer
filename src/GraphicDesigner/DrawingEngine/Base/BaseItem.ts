@@ -1,7 +1,7 @@
 import {Brush} from '../Canvas/Brush';
 import {Painter} from '../Canvas/Painter';
 import {Serializable} from '../../serialize/Serializable';
-import {ClassName} from "../Helper/GraphInterfacType";
+import {BaseClassName} from "../Helper/GraphInterfacType";
 
 /**
  * 用来体现图形包含关系的类
@@ -22,7 +22,7 @@ export class BaseItem implements Painter,Serializable{
     /**
      * 类名
      */
-    private readonly _className: string = ClassName.BaseItem;
+    private readonly _className: string = BaseClassName.BaseItem;
     /**
      * 用来表示当前对象当前状态的标识符；用来识别当前对象是否改变
      */

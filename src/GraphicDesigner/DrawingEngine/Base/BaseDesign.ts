@@ -1,14 +1,13 @@
 import {Sprite} from "pixi.js";
-import {PixiBrush} from "./PixiBrush";
-import {SvgBrush} from "./SvgBrush";
-import {Brush} from "./Brush";
+import {PixiBrush} from "../Canvas/PixiBrush";
+import {SvgBrush} from "../Canvas/SvgBrush";
+import {Brush} from "../Canvas/Brush";
 import {EventBo} from "../BO/EventBo";
-import {CanvasPage} from "./CanvasPage";
 
 /**
  * 作为画布基础
  */
-export class CanvasDesign<PixiArgs extends PixiBrush, SvgArgs extends SvgBrush> {
+export class BaseDesign<PixiArgs extends PixiBrush, SvgArgs extends SvgBrush> {
     /** 画布宽度 */
     private _width: number = 800;
     /** 画布高度 */
@@ -27,9 +26,9 @@ export class CanvasDesign<PixiArgs extends PixiBrush, SvgArgs extends SvgBrush> 
 
     private readonly _svgPainter: SvgArgs | SvgBrush;
 
-    // private _page: CanvasPage<PixiArgs, SvgArgs>;
+    // private _page: BasePage<PixiArgs, SvgArgs>;
 
-    // public get page(): CanvasPage<PixiArgs, SvgArgs> {
+    // public get page(): BasePage<PixiArgs, SvgArgs> {
     //     return this._page;
     // }
     get watermarks(): Sprite[] {
