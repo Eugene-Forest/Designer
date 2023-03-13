@@ -1,4 +1,4 @@
-import {Sprite} from "pixi.js";
+import * as PIXI from "pixi.js";
 import {PixiBrush} from "../Canvas/PixiBrush";
 import {SvgBrush} from "../Canvas/SvgBrush";
 import {Brush} from "../Canvas/Brush";
@@ -15,7 +15,7 @@ export class BaseDesign<PixiArgs extends PixiBrush, SvgArgs extends SvgBrush> {
     /** 画布缩放比例 */
     private _scale: number = 1;
     /** 水印 */
-    private _watermarks: Sprite[] = [];
+    private _watermarks: PIXI.Sprite[] = [];
     /** 是否自动渲染 */
     private _isAutoRender: boolean = false;
 
@@ -31,11 +31,11 @@ export class BaseDesign<PixiArgs extends PixiBrush, SvgArgs extends SvgBrush> {
     // public get page(): BasePage<PixiArgs, SvgArgs> {
     //     return this._page;
     // }
-    get watermarks(): Sprite[] {
+    get watermarks(): PIXI.Sprite[] {
         return this._watermarks;
     }
 
-    set watermarks(value: Sprite[]) {
+    set watermarks(value: PIXI.Sprite[]) {
         this._watermarks = value;
     }
 
@@ -92,6 +92,10 @@ export class BaseDesign<PixiArgs extends PixiBrush, SvgArgs extends SvgBrush> {
         }
     }
 
+    public getStage(){
+        return this._pixiPainter.stage;
+    }
+
     constructor(parentEle: HTMLElement, width?: number, height?: number, isAutoRender?: boolean, pixiPainter?: PixiArgs, svgPainter?: SvgArgs, eventBo?: EventBo) {
         this._width = width ? width : 800;
         this._height = height ? height : 800;
@@ -116,9 +120,38 @@ export class BaseDesign<PixiArgs extends PixiBrush, SvgArgs extends SvgBrush> {
     }
 
     public InitCanvasPageListener() {
-        setTimeout(() => {
-
-        }, 10)
+        console.log("初始化监听事件")
+        this.getStage().interactive = true;
+        let isInSage = false;
+        this.getStage().on("mousedown",(event:PIXI.InteractionEvent)=>{
+            console.log("左键点下")
+        })
+        this.getStage().on("pointerover",(event:PIXI.InteractionEvent)=>{
+            console.log("进入舞台")
+            isInSage = true;
+        })
+        this.getStage().on("mousemove",(event:PIXI.InteractionEvent)=>{
+            if(isInSage){
+                console.log("移动")
+            }
+        })
+        this.getStage().on("pointerout",(event:PIXI.InteractionEvent)=>{
+            console.log("离开舞台")
+            isInSage=false;
+        })
+        this.getStage().on("mouseup",(event:PIXI.InteractionEvent)=>{
+            console.log("左键提起")
+        })
+        this.getStage().on("mouseupoutside",(event:PIXI.InteractionEvent)=>{
+            console.log("左键提起")
+        })
+        //滚轮事件
+        this.getStage().on("mousewheel",(event:PIXI.InteractionEvent)=>{
+            console.log("滚轮")
+        })
+        this.getStage().on("rightdown",(event:PIXI.InteractionEvent)=>{
+            console.log("右键")
+        })
     }
 
 }

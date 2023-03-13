@@ -1,5 +1,4 @@
 import {BaseDesign} from "./BaseDesign";
-import {EventBo} from "../BO/EventBo";
 import {PixiBrush} from "../Canvas/PixiBrush";
 import {SvgBrush} from "../Canvas/SvgBrush";
 import {BaseItem} from "./BaseItem";

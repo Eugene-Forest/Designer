@@ -22,6 +22,19 @@ export class CustomPixiBrush extends PixiBrush{
             avatar.alpha = Math.random();
             this.renderCanvas();
         });
+
+
+        // 创建一个半径为32px的圆
+        const circle = new PIXI.Graphics();
+        circle.beginFill(0x1d9ce0);
+        circle.drawCircle(0, 0, 32);
+        circle.endFill();
+        circle.x = 130;
+        circle.y = 130;
+
+        // // 添加到app.stage里，从而可以渲染出来
+        this.container.addChild(circle);
+
         this.container.addChild(avatar);
         this.renderCanvas();
     }

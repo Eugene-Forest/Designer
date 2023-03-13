@@ -1,6 +1,5 @@
 import {Brush} from "./Brush";
 import * as PIXI from "pixi.js";
-import {Application, Container, Graphics} from "pixi.js";
 import {rePainterType} from "../Helper/GraphInterfacType";
 
 /**
@@ -8,17 +7,40 @@ import {rePainterType} from "../Helper/GraphInterfacType";
  */
 export class PixiBrush extends Brush {
     /** pixi app */
-    private _pixiApplication: Application;
+    private _pixiApplication: PIXI.Application;
     /** pixi 画布容器；最终挂载到pixi app的画布舞台上 */
-    private _container: Container;
+    private _container: PIXI.Container;
 
-
-    public get pixiApplication(): Application {
+    /**
+     * 获取画布根程序
+     * @returns {Application}
+     */
+    public get pixiApplication(): PIXI.Application {
         return this._pixiApplication;
     }
 
-    public get container(): Container {
+    /**
+     * 获取画布容器
+     * @returns {Container}
+     */
+    public get container(): PIXI.Container {
         return this._container;
+    }
+
+    /**
+     * 获取画布舞台
+     * @returns {Container}
+     */
+    public get stage(){
+        return this._pixiApplication.stage;
+    }
+
+    /**
+     * 获取画布 HTML 元素
+     * @returns {HTMLCanvasElement}
+     */
+    public get viewEle(){
+        return this._pixiApplication.view;
     }
 
     /**
@@ -40,7 +62,7 @@ export class PixiBrush extends Brush {
     constructor(parentElement: HTMLElement, width: number = 800, height: number = 800, isAutoRender: boolean = false) {
         super();
         //画布初始化
-        this._pixiApplication = new Application({
+        this._pixiApplication = new PIXI.Application({
             width: width,
             height: height,
             antialias: true,//抗锯齿
@@ -52,7 +74,7 @@ export class PixiBrush extends Brush {
         //将pixi画布挂载到父级 Html 元素中
         parentElement.appendChild(this._pixiApplication.view);
         //创建容器
-        this._container = new Container();
+        this._container = new PIXI.Container();
         //挂载
         this._pixiApplication.stage.addChild(this._container);
     }
@@ -81,7 +103,7 @@ export class PixiBrush extends Brush {
         this.container.addChild(avatar);
 
         // 创建一个半径为32px的圆
-        const circle = new Graphics();
+        const circle = new PIXI.Graphics();
         circle.beginFill(0x1d9ce0);
         circle.drawCircle(0, 0, 32);
         circle.endFill();

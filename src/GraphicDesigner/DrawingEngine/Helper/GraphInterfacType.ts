@@ -14,7 +14,6 @@ export enum rePainterType {
     Svg = "SVG"
 }
 
-
 export enum BaseClassName{
 
     BaseItem = "BaseItem",
