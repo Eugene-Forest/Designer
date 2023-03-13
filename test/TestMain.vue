@@ -1,6 +1,5 @@
 <script lang="ts">
-import * as PIXI from 'pixi.js';
-import { Graphics } from 'pixi.js';
+import * as PIXI from "pixi.js-legacy";
 export default {
   methods: {
     initPixi() {
@@ -27,7 +26,7 @@ export default {
       app.stage.addChild(avatar);
 
       // 创建一个半径为32px的圆
-      const circle = new Graphics();
+      const circle = new PIXI.Graphics();
       circle.beginFill(0x1d9ce0);
       circle.drawCircle(0, 0, 32);
       circle.endFill();

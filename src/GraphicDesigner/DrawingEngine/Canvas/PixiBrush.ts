@@ -1,5 +1,5 @@
 import {Brush} from "./Brush";
-import * as PIXI from "pixi.js";
+import * as PIXI from "pixi.js-legacy";
 import {rePainterType} from "../Helper/GraphInterfacType";
 
 /**
@@ -67,7 +67,6 @@ export class PixiBrush extends Brush {
             height: height,
             antialias: true,//抗锯齿
             backgroundColor: 0xffffff,//白色
-            backgroundAlpha: 1,
             preserveDrawingBuffer: true,
             autoStart: isAutoRender,//自动渲染
         })

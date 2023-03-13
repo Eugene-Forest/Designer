@@ -1,4 +1,4 @@
-import * as PIXI from "pixi.js";
+import * as PIXI from "pixi.js-legacy";
 import {PixiBrush} from "../Canvas/PixiBrush";
 import {SvgBrush} from "../Canvas/SvgBrush";
 import {Brush} from "../Canvas/Brush";
@@ -120,6 +120,10 @@ export class BaseDesign<PixiArgs extends PixiBrush, SvgArgs extends SvgBrush> {
     }
 
     public InitCanvasPageListener() {
+
+        //初始化总的画布监听事件
+
+
         console.log("初始化监听事件")
         this.getStage().interactive = true;
         let isInSage = false;
@@ -142,11 +146,8 @@ export class BaseDesign<PixiArgs extends PixiBrush, SvgArgs extends SvgBrush> {
         this.getStage().on("mouseup",(event:PIXI.InteractionEvent)=>{
             console.log("左键提起")
         })
-        this.getStage().on("mouseupoutside",(event:PIXI.InteractionEvent)=>{
-            console.log("左键提起")
-        })
         //滚轮事件
-        this.getStage().on("mousewheel",(event:PIXI.InteractionEvent)=>{
+        this.getStage().on("wheel",(event:PIXI.InteractionEvent)=>{
             console.log("滚轮")
         })
         this.getStage().on("rightdown",(event:PIXI.InteractionEvent)=>{
