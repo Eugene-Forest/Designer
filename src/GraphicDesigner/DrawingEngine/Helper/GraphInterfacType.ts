@@ -20,3 +20,19 @@ export enum BaseClassName{
     BasePage = "BasePage",
 
 }
+
+export enum deColor{
+    white = 0xffffff,
+}
+
+
+export enum ListeningType{
+    BaseCanvas = 0,
+    Container = 1,
+}
+
+// type InteractionPointerEvents = "pointerdown" | "pointercancel" | "pointerup" | "pointertap" | "pointerupoutside" | "pointermove" | "pointerover" | "pointerout";
+// type InteractionTouchEvents = "touchstart" | "touchcancel" | "touchend" | "touchendoutside" | "touchmove" | "tap";
+// type InteractionMouseEvents = "rightdown" | "mousedown" | "rightup" | "mouseup" | "rightclick" | "click" | "rightupoutside" | "mouseupoutside" | "mousemove" | "mouseover" | "mouseout";
+// type InteractionPixiEvents = "added" | "removed";
+// type InteractionEventTypes = InteractionPointerEvents | InteractionTouchEvents | InteractionMouseEvents | InteractionPixiEvents;

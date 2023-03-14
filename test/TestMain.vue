@@ -1,5 +1,4 @@
 <script lang="ts">
-import * as PIXI from "pixi.js-legacy";
 export default {
   methods: {
     initPixi() {

@@ -1,6 +1,5 @@
 import {CustomPage} from "../base/CustomPage";
-import * as PIXI from "pixi.js";
-import {Graphics} from "pixi.js";
+import {ListeningType} from "../DrawingEngine/Helper/GraphInterfacType";
 
 /**
  * 入口类；开放接口
@@ -22,5 +21,32 @@ export class MainApplication {
     public drawSomething(){
         let brush = this.page.design.getPainter(false);
         brush.paintSomething();
+    }
+
+    public changeEventListener(type:ListeningType){
+        switch (type){
+            case ListeningType.BaseCanvas:{
+                if(this.page.design.listeningType!=ListeningType.BaseCanvas){
+                    this.page.design.destroyContainerListener();
+                    this.page.design.initBaseCanvasListener();
+                }
+                break;
+            }
+            case ListeningType.Container:{
+                if(this.page.design.listeningType!=ListeningType.Container){
+                    this.page.design.destroyBaseCanvasListener();
+                    this.page.design.initContainerListener();
+                }
+                break;
+            }
+            default :{
+
+            }
+        }
+    }
+
+
+    private getDesign(){
+        return this.page.design;
     }
 }

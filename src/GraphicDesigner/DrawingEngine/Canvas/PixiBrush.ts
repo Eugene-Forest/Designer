@@ -1,15 +1,24 @@
 import {Brush} from "./Brush";
-import * as PIXI from "pixi.js-legacy";
-import {rePainterType} from "../Helper/GraphInterfacType";
+import {deColor, rePainterType} from "../Helper/GraphInterfacType";
 
 /**
  * 封装 pixi.js 画笔
  */
 export class PixiBrush extends Brush {
     /** pixi app */
-    private _pixiApplication: PIXI.Application;
+    private readonly _pixiApplication: PIXI.Application;
     /** pixi 画布容器；最终挂载到pixi app的画布舞台上 */
-    private _container: PIXI.Container;
+    private readonly _container: PIXI.Container;
+    /**
+     * 用以触发事件的矩形图形，所有的后续图形应当在其范围内
+     * @type {PIXI.Graphics}
+     * @private
+     */
+    private readonly _baseCanvasRect: PIXI.Graphics;
+
+    public get baseCanvasRect(): PIXI.Graphics {
+        return this._baseCanvasRect;
+    }
 
     /**
      * 获取画布根程序
@@ -66,7 +75,7 @@ export class PixiBrush extends Brush {
             width: width,
             height: height,
             antialias: true,//抗锯齿
-            backgroundColor: 0xffffff,//白色
+            backgroundColor: deColor.white,//白色
             preserveDrawingBuffer: true,
             autoStart: isAutoRender,//自动渲染
         })
@@ -76,6 +85,19 @@ export class PixiBrush extends Brush {
         this._container = new PIXI.Container();
         //挂载
         this._pixiApplication.stage.addChild(this._container);
+
+        //初始化基础画布矩形，用以出发一系列鼠标事件
+        let initScale =  0.3;
+        this._baseCanvasRect = new PIXI.Graphics();
+        this._baseCanvasRect.beginFill(deColor.white,0.1);
+        this._baseCanvasRect.drawRect(0,0,width/initScale,height/initScale);
+        this._baseCanvasRect.endFill();
+        this._pixiApplication.stage.addChild(this.baseCanvasRect);
+        //初始化渲染
+        this._pixiApplication.render();
+        // setTimeout(()=>{
+        //     this._pixiApplication.render();
+        // },1000);
     }
 
     public get PainterType(): rePainterType {
@@ -116,5 +138,12 @@ export class PixiBrush extends Brush {
         this.renderCanvas();
     }
 
+    public destroy(removeView:boolean){
+        this._pixiApplication.destroy(removeView);
+    }
+
+    public getResourceLoader(): PIXI.Loader{
+        return this._pixiApplication.loader;
+    }
 
 }
