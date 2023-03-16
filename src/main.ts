@@ -1,26 +1,26 @@
 import {createApp} from 'vue'
 import './style.css'
-import App from './2DApp.vue'
+import designerApp from './2DApp.vue'
 import TestApp from '../test/2d/TestApp.vue'
 import './CustomConfig'
 
 let vite_env = import.meta.env.VITE_ENV;
 let application;
 switch (vite_env) {
-    case "dev": {
-        application = createApp(App);
+    case "2d.dev": {
+        application = createApp(designerApp);
         break;
     }
-    case "prod": {
-        application = createApp(App);
+    case "3d.dev": {
+        application = createApp(TestApp);
         break;
     }
-    case "test": {
+    case "test2d": {
         application = createApp(TestApp);
         break;
     }
     default: {
-        application = createApp(App);
+        application = createApp(TestApp);
     }
 }
 application.mount('#app');

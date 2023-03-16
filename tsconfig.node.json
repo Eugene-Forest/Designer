@@ -6,6 +6,6 @@
     "allowSyntheticDefaultImports": true
   },
   "include": [
-    "config.dev.ts"
+    "config.3d.dev.ts"
   ]
 }

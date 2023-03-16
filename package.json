@@ -1,13 +1,13 @@
 {
 	"name": "vite-vue-typescript-starter",
 	"private": true,
-	"version": "0.0.1",
+	"version": "1.0.0-bate",
 	"type": "module",
 	"scripts": {
-		"start": "vite --mode=dev --config config.dev.ts",
-		"start:test": "vite --mode=test --config config.test.ts",
-		"start:prod": "vite --mode=prod --config config.prod.ts",
+		"start": "vite --mode=3d --config config.3d.dev.ts",
+		"serve": "vite --mode=2d --config config.2d.dev.ts",
 		"dev": "vite",
+		"test:2d": "vite --mode=test2d --config config.2d.dev.ts",
 		"build": "vue-tsc --noEmit && vite build",
 		"preview": "vite preview"
 	},
