@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import {MainApplication} from "../GraphicDesigner/app/MainApplication";
+import {MainApplication} from "../../GraphicDesigner/app/MainApplication";
 
 export default {
   name: "CustomCanvas",

@@ -95,9 +95,6 @@ export class PixiBrush extends Brush {
         this._pixiApplication.stage.addChild(this.baseCanvasRect);
         //初始化渲染
         this._pixiApplication.render();
-        // setTimeout(()=>{
-        //     this._pixiApplication.render();
-        // },1000);
     }
 
     public get PainterType(): rePainterType {

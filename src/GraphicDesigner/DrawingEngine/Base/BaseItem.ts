@@ -1,7 +1,8 @@
 import {Brush} from '../Canvas/Brush';
 import {Painter} from '../Canvas/Painter';
 import {Serializable} from '../../serialize/Serializable';
-import {BaseClassName} from "../Helper/GraphInterfacType";
+import {BaseClassName, rePainterType} from "../Helper/GraphInterfacType";
+import {PixiBrush} from "../Canvas/PixiBrush";
 
 /**
  * 用来体现图形包含关系的类
@@ -32,15 +33,32 @@ export class BaseItem implements Painter,Serializable{
      */
     private _isDrawChange: boolean = true;
 
+    private _isInteractive:boolean = false;
+
+    private _itemGraphs : PIXI.Container;
     //#endregion 属性
 
 
-    //#region 构造函数
+    public get isInteractive(): boolean {
+        return this._isInteractive;
+    }
+
+    public set isInteractive(value: boolean) {
+        this._isInteractive = value;
+    }
+
+
+    public get itemGraphs(): PIXI.Container {
+        return this._itemGraphs;
+    }
+
+//#region 构造函数
     constructor();
     constructor(childItems: BaseItem[], parentItem: BaseItem) ;
     constructor(childItems?: BaseItem[], parentItem?: BaseItem) {
         this._childItems = childItems||null;
         this._parentItem = parentItem||null;
+        this._itemGraphs = new PIXI.Container();
     }    
     //#endregion 构造函数
 
@@ -76,6 +94,7 @@ export class BaseItem implements Painter,Serializable{
 
     public set name(value: string) {
         this._name = value;
+        this.itemGraphs.name = this._name;
     }
 
     public get isDrawChange(): boolean {
@@ -98,7 +117,14 @@ export class BaseItem implements Painter,Serializable{
     //#region 函数实现与重写
     
     paint(painter: Brush): void {
-        throw new Error('Method not implemented.');
+        //判断是否需要重画
+        if(this._isDrawChange){
+            //找到原来的图，清空掉
+            if(painter.PainterType==rePainterType.Pixi){
+                (<PixiBrush>painter).container
+            }
+
+        }
     }
 
     Serialize(): void {

@@ -1,5 +1,5 @@
 <script lang="ts">
-import Start from './components/main.vue'
+import Start from './components/2d/main.vue'
 
 export default {
   components: {
