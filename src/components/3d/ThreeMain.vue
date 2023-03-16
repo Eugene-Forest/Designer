@@ -21,8 +21,7 @@ export default {
 
 <!-- 主界面结构 -->
 <template>
-
-
+  <h1>hello world! welcome to leaning three.js!</h1>
 </template>
 
 

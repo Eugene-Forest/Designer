@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Canvas: typeof import('./src/components/Pixi/Canvas.vue')['default']
     CustomCanvas: typeof import('./src/components/2d/CustomCanvas.vue')['default']
+    DesignerMain: typeof import('./src/components/2d/DesignerMain.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCol: typeof import('element-plus/es')['ElCol']
@@ -16,9 +17,10 @@ declare module '@vue/runtime-core' {
     ElHeader: typeof import('element-plus/es')['ElHeader']
     ElMain: typeof import('element-plus/es')['ElMain']
     ElRow: typeof import('element-plus/es')['ElRow']
-    Main: typeof import('./src/components/2d/main.vue')['default']
+    Main: typeof import('./src/components/3d/main.vue')['default']
     Pixi: typeof import('./test/2d/TestMain.vue')['default']
     RightToolBox: typeof import('./src/components/2d/RightToolBox.vue')['default']
     Svg: typeof import('./src/components/Svg.vue')['default']
+    ThreeMain: typeof import('./src/components/3d/ThreeMain.vue')['default']
   }
 }

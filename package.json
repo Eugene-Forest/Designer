@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "vite --mode=3d --config config.3d.dev.ts",
 		"serve": "vite --mode=2d --config config.2d.dev.ts",
-		"test:2d": "vite --mode=test2d --config config.2d.dev.ts",
+		"test:2d": "vite --mode=test2d --config config.2d.dev.ts"
 	},
 	"dependencies": {
 		"@svgdotjs/svg.js": "^3.1.2",

@@ -1,9 +1,9 @@
 <script lang="ts">
-import Start from './components/2d/main.vue'
+import Designer from './components/2d/DesignerMain.vue'
 
 export default {
   components: {
-    Start
+    Designer
   },
   methods: {},
   mounted() {
@@ -15,7 +15,7 @@ export default {
 
 <!-- 主界面结构 -->
 <template>
-  <Start></Start>
+  <Designer></Designer>
 </template>
 
 

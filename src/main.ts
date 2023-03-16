@@ -1,6 +1,7 @@
 import {createApp} from 'vue'
 import './style.css'
 import designerApp from './2DApp.vue'
+import threeApp from './3DApp.vue'
 import TestApp from '../test/2d/TestApp.vue'
 import './CustomConfig'
 
@@ -12,7 +13,7 @@ switch (vite_env) {
         break;
     }
     case "3d.dev": {
-        application = createApp(TestApp);
+        application = createApp(threeApp);
         break;
     }
     case "test2d": {
