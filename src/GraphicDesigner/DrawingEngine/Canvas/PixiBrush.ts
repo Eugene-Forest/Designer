@@ -1,22 +1,23 @@
 import {Brush} from "./Brush";
 import {deColor, rePainterType} from "../Helper/GraphInterfacType";
+import {Application, Container, Graphics, Loader, Sprite} from "pixi.js";
 
 /**
  * 封装 pixi.js 画笔
  */
 export class PixiBrush extends Brush {
     /** pixi app */
-    private readonly _pixiApplication: PIXI.Application;
+    private readonly _pixiApplication: Application;
     /** pixi 画布容器；最终挂载到pixi app的画布舞台上 */
-    private readonly _container: PIXI.Container;
+    private readonly _container: Container;
     /**
      * 用以触发事件的矩形图形，所有的后续图形应当在其范围内
      * @type {PIXI.Graphics}
      * @private
      */
-    private readonly _baseCanvasRect: PIXI.Graphics;
+    private readonly _baseCanvasRect: Graphics;
 
-    public get baseCanvasRect(): PIXI.Graphics {
+    public get baseCanvasRect(): Graphics {
         return this._baseCanvasRect;
     }
 
@@ -24,7 +25,7 @@ export class PixiBrush extends Brush {
      * 获取画布根程序
      * @returns {Application}
      */
-    public get pixiApplication(): PIXI.Application {
+    public get pixiApplication(): Application {
         return this._pixiApplication;
     }
 
@@ -32,7 +33,7 @@ export class PixiBrush extends Brush {
      * 获取画布容器
      * @returns {Container}
      */
-    public get container(): PIXI.Container {
+    public get container(): Container {
         return this._container;
     }
 
@@ -71,7 +72,7 @@ export class PixiBrush extends Brush {
     constructor(parentElement: HTMLElement, width: number = 800, height: number = 800, isAutoRender: boolean = false) {
         super();
         //画布初始化
-        this._pixiApplication = new PIXI.Application({
+        this._pixiApplication = new Application({
             width: width,
             height: height,
             antialias: true,//抗锯齿
@@ -82,13 +83,13 @@ export class PixiBrush extends Brush {
         //将pixi画布挂载到父级 Html 元素中
         parentElement.appendChild(this._pixiApplication.view);
         //创建容器
-        this._container = new PIXI.Container();
+        this._container = new Container();
         //挂载
         this._pixiApplication.stage.addChild(this._container);
 
         //初始化基础画布矩形，用以出发一系列鼠标事件
         let initScale =  0.3;
-        this._baseCanvasRect = new PIXI.Graphics();
+        this._baseCanvasRect = new Graphics();
         this._baseCanvasRect.beginFill(deColor.white,0.1);
         this._baseCanvasRect.drawRect(0,0,width/initScale,height/initScale);
         this._baseCanvasRect.endFill();
@@ -104,7 +105,7 @@ export class PixiBrush extends Brush {
 
     public paintSomething(): void {
         //目录基础路径基于项目根目录
-        const avatar = PIXI.Sprite.from('/cat.png');
+        const avatar = Sprite.from('/cat.png');
         avatar.scale.set(0.5, 0.5);
         // 居中展示
         avatar.x = 100;
@@ -121,7 +122,7 @@ export class PixiBrush extends Brush {
         this.container.addChild(avatar);
 
         // 创建一个半径为32px的圆
-        const circle = new PIXI.Graphics();
+        const circle = new Graphics();
         circle.beginFill(0x1d9ce0);
         circle.drawCircle(0, 0, 32);
         circle.endFill();
@@ -139,7 +140,7 @@ export class PixiBrush extends Brush {
         this._pixiApplication.destroy(removeView);
     }
 
-    public getResourceLoader(): PIXI.Loader{
+    public getResourceLoader(): Loader{
         return this._pixiApplication.loader;
     }
 

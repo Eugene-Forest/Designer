@@ -3,6 +3,7 @@ import {Painter} from '../Canvas/Painter';
 import {Serializable} from '../../serialize/Serializable';
 import {BaseClassName, rePainterType} from "../Helper/GraphInterfacType";
 import {PixiBrush} from "../Canvas/PixiBrush";
+import { Container } from 'pixi.js';
 
 /**
  * 用来体现图形包含关系的类
@@ -25,7 +26,7 @@ export class BaseItem implements Painter,Serializable{
      */
     private readonly _className: string = BaseClassName.BaseItem;
     /**
-     * 用来表示当前对象当前状态的标识符；用来识别当前对象是否改变
+     * 用来表示当前对象当前状态的标识符；可以用来识别当前对象是否改变
      */
     private _uuid : number = 0;
     /**
@@ -33,9 +34,14 @@ export class BaseItem implements Painter,Serializable{
      */
     private _isDrawChange: boolean = true;
 
+    /**
+     * 是否可交互；pixi交互
+     * @type {boolean}
+     * @private
+     */
     private _isInteractive:boolean = false;
 
-    private _itemGraphs : PIXI.Container;
+    private _itemGraphs : Container;
     //#endregion 属性
 
 
