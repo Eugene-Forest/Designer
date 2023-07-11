@@ -82,10 +82,6 @@ export class PixiBrush extends Brush {
         })
         //将pixi画布挂载到父级 Html 元素中
         parentElement.appendChild(this._pixiApplication.view);
-        //创建容器
-        this._container = new Container();
-        //挂载
-        this._pixiApplication.stage.addChild(this._container);
 
         //初始化基础画布矩形，用以出发一系列鼠标事件
         let initScale =  0.3;
@@ -94,6 +90,11 @@ export class PixiBrush extends Brush {
         this._baseCanvasRect.drawRect(0,0,width/initScale,height/initScale);
         this._baseCanvasRect.endFill();
         this._pixiApplication.stage.addChild(this.baseCanvasRect);
+        //创建画图结果容器
+        this._container = new Container();
+        //挂载
+        this._pixiApplication.stage.addChild(this._container);
+
         //初始化渲染
         this._pixiApplication.render();
     }

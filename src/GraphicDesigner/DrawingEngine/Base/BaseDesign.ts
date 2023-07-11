@@ -102,9 +102,9 @@ export class BaseDesign<PixiArgs extends PixiBrush, SvgArgs extends SvgBrush> {
         }
     }
 
-    // public getStage(){
-    //     return this._pixiPainter.stage;
-    // }
+    public getStage(){
+        return this._pixiPainter.stage;
+    }
 
     public getContainer(){
         return this._pixiPainter.container;
@@ -145,15 +145,16 @@ export class BaseDesign<PixiArgs extends PixiBrush, SvgArgs extends SvgBrush> {
         console.log("初始化画布监听事件")
         this._listeningType = ListeningType.BaseCanvas;
         this.getBaseCanvas().interactive = true;
+        let stage = this.getStage();
         let isInSage = false;
-        this.getBaseCanvas().on("mousedown",(event:PIXI.InteractionEvent)=>{
+        stage.on("mousedown",(event:PIXI.InteractionEvent)=>{
             console.log("左键点下")
         })
         this.getBaseCanvas().on("pointerover",(event:PIXI.InteractionEvent)=>{
             console.log("进入舞台")
             isInSage = true;
         })
-        this.getBaseCanvas().on("mousemove",(event:PIXI.InteractionEvent)=>{
+        stage.on("mousemove",(event:PIXI.InteractionEvent)=>{
             if(isInSage){
                 console.log("移动")
             }
@@ -162,14 +163,14 @@ export class BaseDesign<PixiArgs extends PixiBrush, SvgArgs extends SvgBrush> {
             console.log("离开舞台")
             isInSage=false;
         })
-        this.getBaseCanvas().on("mouseup",(event:PIXI.InteractionEvent)=>{
+        stage.on("mouseup",(event:PIXI.InteractionEvent)=>{
             console.log("左键提起")
         })
         //滚轮事件
-        this.getBaseCanvas().on("wheel",(event:PIXI.InteractionEvent)=>{
+        stage.on("wheel",(event:PIXI.InteractionEvent)=>{
             console.log("滚轮")
         })
-        this.getBaseCanvas().on("rightdown",(event:PIXI.InteractionEvent)=>{
+        stage.on("rightdown",(event:PIXI.InteractionEvent)=>{
             console.log("右键")
         })
     }
