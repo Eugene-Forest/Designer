@@ -10,4 +10,7 @@ export class CustomDesign extends BaseDesign<CustomPixiBrush, CustomSvgBrush> {
     constructor(parentEle: HTMLElement, width: number, height: number, isAutoRender: boolean, pixiPainter: CustomPixiBrush, svgPainter: CustomSvgBrush, eventBo?: EventBo) {
         super(parentEle, width, height, isAutoRender, pixiPainter, svgPainter, eventBo);
     }
+
+
+
 }

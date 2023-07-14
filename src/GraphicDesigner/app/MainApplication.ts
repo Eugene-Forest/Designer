@@ -1,5 +1,6 @@
 import {CustomPage} from "../base/CustomPage";
 import {ListeningType} from "../DrawingEngine/Helper/GraphInterfacType";
+import {CustomPixiBrush} from "../base/CustomPixiBrush";
 
 /**
  * 入口类；开放接口
@@ -19,8 +20,13 @@ export class MainApplication {
     }
 
     public drawSomething(){
-        let brush = this.page.design.getPainter(false);
+        let brush = this.page.design.getPainter(false) as CustomPixiBrush;
         brush.paintSomething();
+    }
+
+    public updateSomething(){
+        let brush = this.page.design.getPainter(false) as CustomPixiBrush;
+        brush.updateSomething();
     }
 
     public changeEventListener(type:ListeningType){

@@ -101,7 +101,6 @@ export class BaseDesign<PixiArgs extends PixiBrush, SvgArgs extends SvgBrush> {
             return this._pixiPainter;
         }
     }
-
     public getStage(){
         return this._pixiPainter.stage;
     }
